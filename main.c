@@ -11,6 +11,16 @@
 
 #include "stdio.h"
 
+/* 4 levels of queue prioritization
+Real time:
+    lowest possible launch latency
+Focus:
+    no progress guarantee for lower priority levels
+Normal:
+    majority of gpu execution time in the absence of Real time work
+Low:
+    ensures forward progress for the normal level work
+*/
 enum priority {
     realTime,
     focus,
